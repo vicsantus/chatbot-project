@@ -7,12 +7,15 @@ function UserStage({MakeCSV}) {
   const {textData, setTextData} = useContext(ChatContext);
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
+  const {setCheckUser} = useContext(ChatContext);
 
 
   useEffect(() => {
     if (conversationStage === 'userStage') {
       if (!['hello', 'good', 'i want', 'goodbye'].includes(atualUser.toLowerCase())) {
-        console.log('ENTROU!!!!!!!!!!!!!!!!');
+        setCheckUser({
+          user: atualUser.toLowerCase()
+        });
         setTextData([ 
           ...textData,
           {
@@ -22,7 +25,9 @@ function UserStage({MakeCSV}) {
             msg: 'Ok! Now please enter your password!'
           }
         ]);
-        // setConversationStage('xxxxxxx');
+        setConversationStage('checkStage');
+      } else if (['hello', 'good', 'i want'].includes(atualUser.toLowerCase())) {
+        setConversationStage('start');
       } else if ('goodbye' === atualUser.toLowerCase()) {
         MakeCSV(textData);
         setConversationId(conversationId + 1);
@@ -40,10 +45,6 @@ function UserStage({MakeCSV}) {
       }
     }
   }, [atualUser]);
-
-  useEffect(() => {
-    console.log(conversationStage);
-  }, [conversationStage])
 }
 
 export default UserStage

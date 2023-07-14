@@ -38,9 +38,11 @@ function StartStage({MakeCSV}) {
         ]);
       }
     }
-    
-
   }, [atualUser]);
+
+  useEffect(() => {
+    console.log(conversationStage);
+  }, [conversationStage])
 }
 
 export default StartStage
