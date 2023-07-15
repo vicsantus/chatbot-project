@@ -11,7 +11,7 @@ function UserStage({MakeCSV}) {
 
 
   useEffect(() => {
-    if (conversationStage === 'userStage') {
+    if (conversationStage === 'userStage' && textData[textData.length - 1].who === 'user') {
       if (!['hello', 'good', 'i want', 'goodbye'].includes(atualUser.toLowerCase())) {
         setCheckUser({
           user: atualUser.toLowerCase()
@@ -44,7 +44,7 @@ function UserStage({MakeCSV}) {
         ]);
       }
     }
-  }, [atualUser]);
+  }, [textData]);
 }
 
 export default UserStage

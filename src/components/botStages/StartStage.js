@@ -10,7 +10,7 @@ function StartStage({MakeCSV}) {
 
 
   useEffect(() => {
-    if (conversationStage === 'start') {
+    if (conversationStage === 'start' && textData[textData.length - 1]?.who === 'user') {
       if (['hello', 'good', 'i want'].includes(atualUser.toLowerCase())) {
         setTextData([ 
           ...textData,
@@ -38,7 +38,7 @@ function StartStage({MakeCSV}) {
         ]);
       }
     }
-  }, [atualUser]);
+  }, [textData, conversationStage]);
 
   useEffect(() => {
     console.log(conversationStage);
