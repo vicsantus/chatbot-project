@@ -2,7 +2,7 @@
 import { useContext, useEffect, useState } from 'react';
 import ChatContext from '../../context/ChatContext';
 
-function CheckStage({MakeCSV}) {
+function LoanStage({MakeCSV}) {
   const {atualUser} = useContext(ChatContext);
   const {textData, setTextData} = useContext(ChatContext);
   const {userAndPass} = useContext(ChatContext);
@@ -76,22 +76,20 @@ function CheckStage({MakeCSV}) {
             idConv: conversationId,
             date: new Date(Date.now()).toLocaleString(),
             who: 'bot',
-            msg: `1 - Do you want to apply for a loan?
-            2 - Loan conditions
-            3 - Help`
+            msg: 'Proximo passo!'
           }
         ]);
-        setConversationStage('loanStage');
+        setConversationStage('proximopasso');
         
       }
   }
 
   useEffect(() => {
-    if (timeToDo === '' && conversationStage === 'checkStage') makeConversation();
+    if (timeToDo === '' && conversationStage === 'loanStage') makeConversation();
   }, [timeToDo])
 
   useEffect(() => {
-    if (conversationStage === 'checkStage' 
+    if (conversationStage === 'loanStage' 
     && textData[textData.length - 1].who === 'user') {
       if (checkUser.pass === undefined) {
         setCheckUser({
@@ -101,7 +99,7 @@ function CheckStage({MakeCSV}) {
       };
       if (timeToDo === '') makeConversation();
     }
-  }, [textData]); // DANDO ERRO AQUI AO COLOCAR USER E SENHA CORRETAMENTE DESDE O COMEÇO
+  }, [textData]);
 }
 
-export default CheckStage
+export default LoanStage

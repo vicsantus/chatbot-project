@@ -16,6 +16,7 @@ function UserStage({MakeCSV}) {
         setCheckUser({
           user: atualUser.toLowerCase()
         });
+        
         setTextData([ 
           ...textData,
           {
@@ -26,12 +27,24 @@ function UserStage({MakeCSV}) {
           }
         ]);
         setConversationStage('checkStage');
+
       } else if (['hello', 'good', 'i want'].includes(atualUser.toLowerCase())) {
         setConversationStage('start');
+
       } else if ('goodbye' === atualUser.toLowerCase()) {
+        setTextData([ 
+          ...textData,
+          {
+            idConv: conversationId,
+            date: new Date(Date.now()).toLocaleString(),
+            who: 'bot',
+            msg: 'Goodbye! To the next!'
+          }
+        ]);
         MakeCSV(textData);
         setConversationId(conversationId + 1);
         setConversationStage('start');
+
       } else if (atualUser) {
         setTextData([ 
           ...textData,

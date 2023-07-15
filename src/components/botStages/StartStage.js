@@ -22,10 +22,21 @@ function StartStage({MakeCSV}) {
           }
         ]);
         setConversationStage('userStage');
+
       } else if ('goodbye' === atualUser.toLowerCase()) {
+        setTextData([ 
+          ...textData,
+          {
+            idConv: conversationId,
+            date: new Date(Date.now()).toLocaleString(),
+            who: 'bot',
+            msg: 'Goodbye! To the next!'
+          }
+        ]);
         MakeCSV(textData);
         setConversationId(conversationId + 1)
         setConversationStage('start');
+
       } else if (atualUser) {
         setTextData([ 
           ...textData,
@@ -41,8 +52,8 @@ function StartStage({MakeCSV}) {
   }, [textData, conversationStage]);
 
   useEffect(() => {
-    console.log(conversationStage);
-  }, [conversationStage])
+    console.log(conversationStage); // ---------------APAGAR ISSO NO FINAL-------------
+  }, [conversationStage]);
 }
 
 export default StartStage
