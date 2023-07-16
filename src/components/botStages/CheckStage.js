@@ -104,7 +104,7 @@ function CheckStage({MakeCSV}) {
       };
       if (timeToDo === '') makeConversation();
     }
-  }, [textData]); // DANDO ERRO AQUI AO COLOCAR USER E SENHA CORRETAMENTE DESDE O COMEÇO
+  }, [textData]);
 }
 
 export default CheckStage
