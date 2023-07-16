@@ -79,13 +79,22 @@ function CheckStage({MakeCSV}) {
             idConv: conversationId,
             date: new Date(Date.now()).toLocaleString(),
             who: 'bot',
-            msg: `1 - Do you want to apply for a loan?
-            2 - Loan conditions
-            3 - Help`
+            msg: `1 - Do you want to apply for a loan?`
+          },
+          {
+            idConv: conversationId,
+            date: new Date(Date.now()).toLocaleString(),
+            who: 'bot',
+            msg: `2 - Loan conditions`
+          },
+          {
+            idConv: conversationId,
+            date: new Date(Date.now()).toLocaleString(),
+            who: 'bot',
+            msg: `3 - Help`
           }
         ]);
         setConversationStage('loanStage');
-        
       }
   }
 
