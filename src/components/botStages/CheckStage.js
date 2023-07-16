@@ -9,24 +9,27 @@ function CheckStage({MakeCSV}) {
   const {checkUser, setCheckUser} = useContext(ChatContext);
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
-  const [timeToDo, setTimeToDo] = useState('');
+  const [timeToDo, setTimeToDo] = useState('pass');
 
   useEffect(() => {
-    if (timeToDo === 'pass' && textData[textData.length - 1].who === 'user') {
-      setCheckUser({
-        ...checkUser,
-        pass: atualUser.toLowerCase(),
-      });
-    setTimeToDo('');
+    if (conversationStage === 'checkStage' 
+    && textData[textData.length - 1].who === 'user') {
+      if (timeToDo === 'pass') {
+        setCheckUser({
+          ...checkUser,
+          pass: atualUser.toLowerCase(),
+        });
+      setTimeToDo('');
 
-    }
-    if (timeToDo === 'user' && textData[textData.length - 1].who === 'user') {
-      setCheckUser({
-        ...checkUser,
-        user: atualUser.toLowerCase(),
-      });
-    setTimeToDo('');
+      }
+      if (timeToDo === 'user') {
+        setCheckUser({
+          ...checkUser,
+          user: atualUser.toLowerCase(),
+        });
+      setTimeToDo('');
 
+      }
     }
   }, [textData]);
 
