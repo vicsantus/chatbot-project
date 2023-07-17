@@ -25,8 +25,12 @@ body {
   background-color: #2c2f33;
   padding: 9px;
   width: 99%;
-  color: #ffffff;
+  color: #7289da;
   text-align: center;
+}
+
+.header > a:visited {
+  color: #7289da;
 }
 
 .header > a:first-child {
@@ -35,7 +39,7 @@ body {
 
 .display {
   overflow: scroll;
-  width: 390px;
+  width: 360px;
   display: flex;
   flex-flow: column nowrap;
   align-content: flex-end;
@@ -71,7 +75,7 @@ body {
 }
 
 .main-page > div:last-child {
-  width: 400px;
+  width: 380px;
   min-width: 300px;
   height: 700px;
   display: flex;
@@ -87,17 +91,22 @@ body {
   margin-bottom: 30px;
 }
 
-.sendMensage {
+.sendMessage {
   width: 100%;
   margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  align-content: center;
+  align-items: center;
 }
 
-.sendMensage > input {
-  width: 79%;
+.sendMessage > input {
+  width: 80%;
   height: 25px;
 }
 
-.sendMensage > button {
-  width: 19%;
+.sendMessage > button {
   height: 30px;
+  width: auto;
 }
