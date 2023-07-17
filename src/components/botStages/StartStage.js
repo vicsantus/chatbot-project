@@ -8,6 +8,7 @@ function StartStage({MakeCSV}) {
   const {textData, setTextData} = useContext(ChatContext);
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
+  const {setTimeToDo} = useContext(ChatContext);
 
   // O hook useEffect é usado para realizar ações quando o estado do componente muda
   useEffect(() => {
@@ -21,10 +22,12 @@ function StartStage({MakeCSV}) {
             idConv: conversationId,
             date: new Date(Date.now()).toLocaleString(),
             who: 'bot',
-            msg: 'Hi how are you! Please enter your username!'
+            msg: 'Hi how are you? I am the Lexart Chatbot. Please enter your username!'
           }
         ]);
         setConversationStage('userStage'); // Define a próxima etapa da conversa como 'userStage'
+        setTimeToDo('pass'); // Define o estado inicial para pass novamente, para novamente definir password
+
 
       } else if ('goodbye' === atualUser.toLowerCase()) {
         // Adiciona uma nova mensagem de despedida ao array textData e chama a função MakeCSV
