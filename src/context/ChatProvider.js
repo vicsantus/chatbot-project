@@ -9,6 +9,7 @@ export default function ChatProvider({ children }) {
   const [conversationStage, setConversationStage] = useState('start');
   const [userAndPass, setUserAndPass] = useState({user: 'lexart', pass: 'lexart123'});
   const [checkUser, setCheckUser] = useState({});
+  const [timeToDo, setTimeToDo] = useState('pass');
 
   const value = useMemo(() => ({
     textData,
@@ -22,7 +23,9 @@ export default function ChatProvider({ children }) {
     userAndPass,
     setUserAndPass,
     checkUser,
-    setCheckUser
+    setCheckUser,
+    timeToDo,
+    setTimeToDo
   }), [textData,
     setTextData, 
     conversationId, 
@@ -32,7 +35,7 @@ export default function ChatProvider({ children }) {
     conversationStage, 
     setConversationStage,
     userAndPass,
-    setUserAndPass, checkUser, setCheckUser]);
+    setUserAndPass, checkUser, setCheckUser, timeToDo, setTimeToDo]);
 
   return (  
     <ChatContext.Provider value={ value }>
