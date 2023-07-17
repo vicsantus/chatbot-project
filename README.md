@@ -4,6 +4,10 @@
 
 The project is a simple chatbot, made in React, React Native and Context Api. It saves the entire conversation when exiting asking the user to download the conversation in csv.
 
+## ⚠️ Attention
+When using the application. The bot will ask for the application's username and password. User username is `lexart` and password is `lexart123`.
+It will not be possible to use the entire application without entering the username and password correctly when asked.
+
 ## 🤖 How the project works
 
 When starting the project you have 5 options to chat with the bot.
