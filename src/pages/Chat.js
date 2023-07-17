@@ -55,7 +55,7 @@ function Chat() {
         <Bot />
 
         {/* Seção para digitar e enviar mensagens */}
-        <section className='sendMensage'>
+        <section className='sendMessage'>
           <input value={input} type="text" onChange={(e) => handleChange(e)} onKeyDown={handleKeyDown} />
           {/* O valor do input é definido pelo estado "input", ao digitar, a função handleChange atualiza o estado */}
 
