@@ -17,7 +17,7 @@ function CheckStage({MakeCSV}) {
       if (timeToDo === 'pass') {
         textData[textData.length - 1].who = 'user-pass'; // Caso seja a senha do user, troca who para user-pass
         textData[textData.length - 1].msg = Array.from({ length: textData[textData.length - 1]
-          .msg.length }, () => '*').join(''); // Caso seja a senha do user, troca o conteudo para asteristicos
+          .msg.length }, () => '*').join(''); // Caso seja a senha do user, troca o conteudo para asterisco
         setCheckUser({
           ...checkUser,
           pass: atualUser.toLowerCase(),
