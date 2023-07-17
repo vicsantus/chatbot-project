@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // Aviso desabilitado para a dependência exhaustiveness do ESLint
 
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext } from 'react';
 import ChatContext from '../context/ChatContext';
 
 function Display() {
   // Utilização do hook useContext para acessar o estado "textData" do contexto do ChatContext
   const {textData} = useContext(ChatContext);
-  const displayRef = useRef(null); // Criamos uma referencia ao display
 
   // Função para lidar com o clique em um link do bot
   const handleClick = (e) => {
@@ -18,19 +17,8 @@ function Display() {
     }
   };
 
-  const scrollToBottom = () => {
-    if (displayRef.current) {
-      displayRef.current.scrollTop = displayRef.current.scrollHeight;
-    }
-  }; // Função ajusta o scroll para o elemente referente
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [textData]); // Toda vez que atualiza o textData, atualiza a referencia a ultima msg
-  // Isso faz o scroll descer sempre para a ultima mensagem ao atualizar textData
-
   return (
-    <section className='display' ref={displayRef}> {/* Adicionamos a referencia ao display */}
+    <section>
       {/* Mapeia o array "textData" para renderizar as mensagens */}
       {textData?.map((texts, idx) => (
         // Renderiza cada mensagem como uma div com a classe correspondente ao remetente (who)
