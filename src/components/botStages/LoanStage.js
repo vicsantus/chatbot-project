@@ -8,6 +8,35 @@ function LoanStage({MakeCSV}) {
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
 
+  function optionsAgain() {
+    return [ 
+      {
+        idConv: conversationId,
+        date: new Date(Date.now()).toLocaleString(),
+        who: 'bot',
+        msg: `Look at the options again.`
+      },
+      {
+        idConv: conversationId,
+        date: new Date(Date.now()).toLocaleString(),
+        who: 'bot',
+        msg: `1 - Do you want to apply for a loan?`
+      },
+      {
+        idConv: conversationId,
+        date: new Date(Date.now()).toLocaleString(),
+        who: 'bot',
+        msg: `2 - Loan conditions`
+      },
+      {
+        idConv: conversationId,
+        date: new Date(Date.now()).toLocaleString(),
+        who: 'bot',
+        msg: `3 - Help`
+      }
+    ];
+  }
+
   function makeConversation() {
     if ('1' === atualUser.toLowerCase()) {
       setTextData([ 
@@ -49,6 +78,8 @@ function LoanStage({MakeCSV}) {
         }
       ]);
 
+      } else if ('3' === atualUser.toLowerCase()) {
+        setTextData([...textData, ...optionsAgain()]);
       } else if ('goodbye' === atualUser.toLowerCase()) {
       setTextData([ 
         ...textData,
@@ -70,8 +101,9 @@ function LoanStage({MakeCSV}) {
           idConv: conversationId,
           date: new Date(Date.now()).toLocaleString(),
           who: 'bot',
-          msg: 'Did not understand what you said.'
-        }
+          msg: 'This is not an option!'
+        },
+        ...optionsAgain(),
       ]);
     }
   }
