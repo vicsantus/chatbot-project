@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import ChatContext from '../../context/ChatContext';
 
 function CheckStage({MakeCSV}) {
@@ -9,12 +9,15 @@ function CheckStage({MakeCSV}) {
   const {checkUser, setCheckUser} = useContext(ChatContext);
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
-  const [timeToDo, setTimeToDo] = useState('pass');
+  const {timeToDo, setTimeToDo} = useContext(ChatContext);
 
   useEffect(() => {
     if (conversationStage === 'checkStage' 
     && textData[textData.length - 1].who === 'user') {
       if (timeToDo === 'pass') {
+        textData[textData.length - 1].who = 'user-pass'; // Caso seja a senha do user, troca who para user-pass
+        textData[textData.length - 1].msg = Array.from({ length: textData[textData.length - 1]
+          .msg.length }, () => '*').join(''); // Caso seja a senha do user, troca o conteudo para asteristicos
         setCheckUser({
           ...checkUser,
           pass: atualUser.toLowerCase(),
