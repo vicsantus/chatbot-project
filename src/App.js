@@ -5,7 +5,7 @@ import About from './pages/About';
 import Chat from './pages/Chat';
 
 
-export const NoMatch = () => <h1>Página não encontrada</h1>;
+export const NoMatch = () => <h1 style={{color: '#fff'}}>Página não encontrada</h1>;
 // Componente funcional que renderiza a página de "Página não encontrada"
 
 export default function App() {
