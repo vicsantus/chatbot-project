@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+// Aviso desabilitado para a dependência exhaustiveness do ESLint
+
 import { useContext, useEffect } from 'react';
 import ChatContext from '../../context/ChatContext';
 
@@ -8,8 +10,9 @@ function LoanStage({MakeCSV}) {
   const {conversationId, setConversationId} = useContext(ChatContext);
   const {conversationStage, setConversationStage} = useContext(ChatContext);
 
+  // Função para exibir as opções novamente
   function optionsAgain() {
-    return [ 
+    return [ // Retorna um array com as mensagens de opção
       {
         idConv: conversationId,
         date: new Date(Date.now()).toLocaleString(),
@@ -37,10 +40,13 @@ function LoanStage({MakeCSV}) {
     ];
   }
 
+  // Função para criar a conversa com base na escolha do usuário
   function makeConversation() {
     if ('1' === atualUser.toLowerCase()) {
+      // Se a opção escolhida pelo usuário for '1'
       setTextData([ 
         ...textData,
+        // Adiciona as mensagens da conversa relacionadas à escolha
         {
           idConv: conversationId,
           date: new Date(Date.now()).toLocaleString(),
@@ -56,8 +62,10 @@ function LoanStage({MakeCSV}) {
       ]);
 
     } else if ('2' === atualUser.toLowerCase()) {
+      // Se a opção escolhida pelo usuário for '2'
       setTextData([
         ...textData,
+        // Adiciona as mensagens da conversa relacionadas à escolha
         {
           idConv: conversationId,
           date: new Date(Date.now()).toLocaleString(),
@@ -79,24 +87,31 @@ function LoanStage({MakeCSV}) {
       ]);
 
       } else if ('3' === atualUser.toLowerCase()) {
+        // Se a opção escolhida pelo usuário for '3'
         setTextData([...textData, ...optionsAgain()]);
+        // Adiciona as mensagens de opção novamente
+
       } else if ('goodbye' === atualUser.toLowerCase()) {
-      setTextData([ 
-        ...textData,
-        {
-          idConv: conversationId,
-          date: new Date(Date.now()).toLocaleString(),
-          who: 'bot',
-          msg: 'Goodbye! To the next!'
-        }
-      ]);
-      MakeCSV(textData);
-      setConversationId(conversationId + 1);
-      setConversationStage('start');
+        // Se a opção escolhida pelo usuário for 'goodbye'
+        setTextData([ 
+          ...textData,
+          // Adiciona a mensagem de despedida e chama a função MakeCSV
+          {
+            idConv: conversationId,
+            date: new Date(Date.now()).toLocaleString(),
+            who: 'bot',
+            msg: 'Goodbye! To the next!'
+          }
+        ]);
+        MakeCSV(textData); // Chama a função MakeCSV passando o array textData como argumento
+        setConversationId(conversationId + 1); // Incrementa o conversationId e atualiza o estado
+        setConversationStage('start'); // Define a próxima etapa da conversa como 'start' novamente
 
     } else if (atualUser) {
+      // Se o usuário inseriu uma opção inválida
       setTextData([ 
         ...textData,
+        // Adiciona a mensagem de erro e as opções novamente
         {
           idConv: conversationId,
           date: new Date(Date.now()).toLocaleString(),
@@ -108,12 +123,15 @@ function LoanStage({MakeCSV}) {
     }
   }
 
+  // Utilização do hook useEffect para realizar ações quando o estado de textData muda
   useEffect(() => {
+    // A função dentro do useEffect será executada toda vez que o estado de textData mudar
     if (conversationStage === 'loanStage' 
-    && textData[textData.length - 1].who === 'user') {
-      makeConversation();
+      && textData[textData.length - 1].who === 'user') {
+        // Verificação se a etapa da conversa é 'loanStage' e se a última mensagem é do usuário
+        makeConversation(); // Chama a função para criar a conversa com base na escolha do usuário
     }
-  }, [textData]);
+  }, [textData]); // O gatilho para o useEffect é o estado textData
 }
 
 export default LoanStage
