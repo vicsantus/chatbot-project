@@ -1,103 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@500;600;700;800;900&display=swap');
-
-* {
-  font-family: 'Roboto Serif', serif;
-}
-
-body {
-  background-color: #23272a;
-}
-
-.main-page {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
-  gap: 30px;
-}
-
-.header {
-  display: flex;
-  justify-content: flex-start;
-  gap: 50px;
-  min-width: 200px;
-  background-color: #2c2f33;
-  padding: 9px;
-  width: 99%;
-  color: #ffffff;
+.App {
   text-align: center;
 }
 
-.header > a:first-child {
-  margin-left: 30px;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.display {
-  overflow: scroll;
-  width: 390px;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-  flex-flow: column nowrap;
-  align-content: flex-end;
-  align-items: flex-end;
-  gap: 6px;
-  padding: 3px;
-}
-
-.msg-bot, .msg-bot-link, .msg-user, .msg-user-pass {
-  border-radius: 3px;
-  padding: 18px 9px 18px 9px;
-  line-height: 1.6;
-  flex-shrink: 0;
-  color: black;
-}
-
-.msg-user, .msg-user-pass {
-  background-color: #7289da;
-  align-self: flex-end;
-  border-radius: 9px 9px 3px 9px;
-}
-
-.msg-bot, .msg-bot-link {
-  background-color: #99aab5;
-  align-self: flex-start;
-  border-radius: 9px 9px 9px 3px;
-}
-
-.msg-bot-link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer
-}
-
-.main-page > div:last-child {
-  width: 400px;
-  min-width: 300px;
-  height: 700px;
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-flow: column nowrap;
-  border: 3px solid #7289da;
-  border-radius: 3%;
-  overflow: scroll;
-  gap: 9px;
-  background-color: #2c2f33;
-  margin-bottom: 30px;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.sendMensage {
-  width: 100%;
-  margin-bottom: 6px;
+.App-link {
+  color: #61dafb;
 }
 
-.sendMensage > input {
-  width: 79%;
-  height: 25px;
-}
-
-.sendMensage > button {
-  width: 19%;
-  height: 30px;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
