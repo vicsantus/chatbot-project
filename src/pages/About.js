@@ -1,8 +1,10 @@
 import React from 'react';
 
 const About = () => {
+  // Componente funcional "About" representa a página "About" do chatbot de empréstimos
+
   return (
-    <div>
+    <div className='about'>
       <h1>About Page</h1>
       <p>This chatbot was created by Victor Santos for a Lexart Labs.</p>
       <p>The chatbot is designed to handle loan requests and provide information about loan conditions.</p>

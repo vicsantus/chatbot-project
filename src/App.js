@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div>
       {/* Navegação por links usando o componente "Link" do react-router-dom */}
-      <header>
+      <header className='header'>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
       </header>
