@@ -21,7 +21,7 @@ function StartStage({MakeCSV}) {
             idConv: conversationId,
             date: new Date(Date.now()).toLocaleString(),
             who: 'bot',
-            msg: 'Hi how are you! Please enter your username!'
+            msg: 'Hi how are you? I am the Lexart Chatbot. Please enter your username!'
           }
         ]);
         setConversationStage('userStage'); // Define a próxima etapa da conversa como 'userStage'

@@ -38,7 +38,7 @@ function CheckStage({MakeCSV}) {
           ...checkUser,
           user: atualUser.toLowerCase(),
         }); // Atualiza o estado checkUser com o nome de usuário em letra minúscula
-      setTimeToDo(''); // Reseta o estado "timeToDo" para uma string vazia
+      setTimeToDo('pass'); // Reseta o estado "timeToDo" para uma string vazia
       }
     }
   }, [textData]); // O gatilho para o useEffect é o estado textData

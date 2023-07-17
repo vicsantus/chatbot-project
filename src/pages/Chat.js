@@ -44,22 +44,26 @@ function Chat() {
   };
 
   return (
-    <div>
-      {/* Componente que exibe as mensagens */}
-      <Display />
+    <>
+      <h1 title="Type 'Hello', 'I want' or 'Good' to start a conversation. 
+      Or type 'Goodbye' to end a conversation whenever you want." style={{color: '#fff'}}>Lexart Chatbot</h1>
+      <div>
+        {/* Componente que exibe as mensagens */}
+        <Display />
 
-      {/* Componente que representa o bot */}
-      <Bot />
+        {/* Componente que representa o bot */}
+        <Bot />
 
-      {/* Seção para digitar e enviar mensagens */}
-      <section className='sendMensage'>
-        <input value={input} type="text" onChange={(e) => handleChange(e)} onKeyDown={handleKeyDown} />
-        {/* O valor do input é definido pelo estado "input", ao digitar, a função handleChange atualiza o estado */}
+        {/* Seção para digitar e enviar mensagens */}
+        <section className='sendMensage'>
+          <input value={input} type="text" onChange={(e) => handleChange(e)} onKeyDown={handleKeyDown} />
+          {/* O valor do input é definido pelo estado "input", ao digitar, a função handleChange atualiza o estado */}
 
-        <button type="button" onClick={() => sendMsg()}>Send</button>
-        {/* Ao clicar no botão "Send", a função sendMsg é chamada para enviar a mensagem */}
-      </section>
-    </div>
+          <button type="button" onClick={() => sendMsg()}>Send</button>
+          {/* Ao clicar no botão "Send", a função sendMsg é chamada para enviar a mensagem */}
+        </section>
+      </div>
+    </>
   )
 }
 
