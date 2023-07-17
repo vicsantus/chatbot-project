@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 import About from './pages/About';
@@ -8,12 +9,18 @@ export const NoMatch = () => <h1>Página não encontrada</h1>;
 // Componente funcional que renderiza a página de "Página não encontrada"
 
 export default function App() {
+
+  useEffect(() => {
+    // Define o título da página usando a API de Documentos
+    document.title = 'Chatbot Lexart - Made by Victor Santos';
+  }, []);
+
   return (
-    <div>
+    <div className='main-page'>
       {/* Navegação por links usando o componente "Link" do react-router-dom */}
       <header className='header'>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
+        <Link to="/">HOME</Link>
+        <Link to="/about">ABOUT</Link>
       </header>
 
       {/* Switch para renderizar apenas a primeira Route que corresponda ao caminho */}
