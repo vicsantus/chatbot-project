@@ -113,4 +113,6 @@ body {
 .sendMessage > button {
   height: 30px;
   width: auto;
+  background-color: #7289da;
+  color: black;
 }
