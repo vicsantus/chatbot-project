@@ -29,6 +29,10 @@ body {
   text-align: center;
 }
 
+.header > a {
+  text-decoration: none !important;
+}
+
 .header > a:visited {
   color: #7289da;
 }
