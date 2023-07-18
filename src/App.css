@@ -41,7 +41,7 @@ body {
   margin-left: 30px;
 }
 
-.display {
+.display, .about {
   overflow: scroll;
   width: 360px;
   display: flex;
@@ -52,7 +52,7 @@ body {
   padding: 3px;
 }
 
-.msg-bot, .msg-bot-link, .msg-user, .msg-user-pass {
+.msg-bot, .msg-bot-link, .msg-user, .msg-user-pass, .about > p {
   border-radius: 3px;
   padding: 18px 9px 18px 9px;
   line-height: 1.6;
@@ -63,13 +63,13 @@ body {
 .msg-user, .msg-user-pass {
   background-color: #7289da;
   align-self: flex-end;
-  border-radius: 9px 9px 3px 9px;
+  border-radius: 9px 9px 1px 9px;
 }
 
-.msg-bot, .msg-bot-link {
+.msg-bot, .msg-bot-link, .about > p {
   background-color: #99aab5;
   align-self: flex-start;
-  border-radius: 9px 9px 9px 3px;
+  border-radius: 9px 9px 9px 1px;
 }
 
 .msg-bot-link {
