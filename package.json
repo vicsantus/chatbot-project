@@ -45,5 +45,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "src/index.js",
+      "src/setupTests.js",
+      "src/reportWebVitals.js",
+      "src/components/MakeCSV.js",
+      "serviceWorker.js",
+      "src/tests"
+    ]
   }
 }

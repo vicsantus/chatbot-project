@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import App from '../App';
 import ChatProvider from '../context/ChatProvider';
+import awaitForATime from './helpers/awaitForATime';
 import { renderWithRouter } from './helpers/renderWith';
 
 const rendOk = async () => {
@@ -29,16 +30,6 @@ const rendOk = async () => {
     expect(botMessage).toHaveClass('msg-bot');
   });
 };
-
-function awaitForATime(action, time) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      action();
-      resolve();
-    }, time);
-  });
-}
-
 
 describe('Testa o componente Display', () => {
   afterEach(() => {
