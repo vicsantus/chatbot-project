@@ -7,8 +7,8 @@ import App from '../App';
 import ChatProvider from '../context/ChatProvider';
 import { renderWithRouter } from './helpers/renderWith';
 
-describe('Testa o componente Chat', () => {
-  test('1-Testa se o chat esta funcionando de modo geral', async () => {
+describe('Testa o componente About', () => {
+  test('1-Testa se a rota About existe corretamente', async () => {
     const { history } = renderWithRouter(
       <ChatProvider>
         <App />

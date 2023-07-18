@@ -1,8 +1,7 @@
+import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-// import { act } from 'react-dom/test-utils';
-import '@testing-library/jest-dom/extend-expect';
 import App from '../App';
 import ChatProvider from '../context/ChatProvider';
 import { renderWithRouter } from './helpers/renderWith';
